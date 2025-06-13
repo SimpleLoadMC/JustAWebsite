@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Version Agnostic Minecraft API/Loader</title>
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.3s, color 0.3s;
+    }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Light/Dark variables */
+    :root {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --link: #61dafb;
+      --header-bg: #1f1f1f;
+      --section-bg: #222;
+      --footer-bg: #1f1f1f;
+      --border: #333;
+      --code-bg: #2d2d2d;
+      --code-text: #f8f8f2;
+    }
+    body.light {
+      --bg: #fefefe;
+      --text: #222222;
+      --link: #007acc;
+      --header-bg: #e0e0e0;
+      --section-bg: #fafafa;
+      --footer-bg: #e0e0e0;
+      --border: #ccc;
+      --code-bg: #f5f5f5;
+      --code-text: #333333;
+    }
+
+    header {
+      background: var(--header-bg);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      max-width: 700px;
+      line-height: 1.3;
+      color: var(--text);
+      flex: 1;
+    }
+
+    nav {
+      margin-left: 2rem;
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--link);
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--text);
+    }
+
+    button#toggle-theme {
+      margin-left: 2rem;
+      background: var(--link);
+      border: none;
+      color: var(--header-bg);
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+    button#toggle-theme:hover {
+      background: #3399ff;
+      color: #fff;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background: var(--section-bg);
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0008;
+      transition: background 0.3s;
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: var(--link);
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+
+    section p {
+      font-size: 1rem;
+      color: var(--text);
+      white-space: pre-line;
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace, monospace;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      background: var(--footer-bg);
+      text-align: center;
+      padding: 1rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 2px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      header h1 {
+        font-size: 1rem;
+        max-width: 100%;
+        flex: none;
+        text-align: center;
+      }
+      nav {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 0.6rem;
+      }
+      button#toggle-theme {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Simpleload<h1>
+    <h1>Yet another forever WIP dumb project to create a version agnostic Minecraft API/Loader</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#updates">Updates</a>
+      <a href="#future">Future</a>
+      <a href="#code">Code</a>
+    </nav>
+    <button id="toggle-theme" aria-label="Toggle light/dark mode">Light Mode</button>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About the Project</h2>
+      <p>
+        This project aims to build a version-agnostic API and loader for Minecraft.
+        The goal is to abstract away differences between Minecraft versions to make modding and tooling easier.
+        As of now, it is a work-in-progress, pretty rough, and honestly a bit dumb — but it’s a start!
+      </p>
+    </section>
+
+    <section id="updates">
+      <h2>Latest Updates</h2>
+      <p>
+        • 2025-06-13: Initial site launch and project announcement.<br>
+      </p>
+    </section>
+
+    <section id="future">
+      <h2>Future Plans</h2>
+      <p>
+        • Create a stable API that works across major Minecraft versions.<br>
+    </section>
+
+    <section id="code">
+      <h2>Sample Code</h2>
+      <pre><code>// Example of loading a Minecraft world using the version-agnostic API
+import MinecraftAPI from 'minecraft-agnostic-loader';
+
+async function loadWorld(version, worldPath) {
+  const api = new MinecraftAPI({ version });
+  await api.loadWorld(worldPath);
+  console.log(`World loaded on Minecraft version ${version}!`);
+}
+
+loadWorld('1.19.4', './my-world')
+  .catch(err => console.error('Failed to load world:', err));
+</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Yet Another WIP Project • Made with ❤️ and caffeine
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    // Load saved theme or default to dark
+    if (localStorage.getItem('theme') === 'light') {
+      body.classList.add('light');
+      toggleBtn.textContent = 'Dark Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      if (body.classList.contains('light')) {
+        toggleBtn.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        toggleBtn.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+
+</body>
+</html>
