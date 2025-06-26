@@ -129,24 +129,10 @@ Copy
   <footer>
     &copy; 2025 Yet Another WIP Project • Made with ❤️ and caffeine
   </footer>
-  <script>
-    const toggleBtn = document.getElementById('toggle-theme');
-    const body = document.body;
-    // Load saved theme or default to dark
-    if (localStorage.getItem('theme') === 'light') {
-      body.classList.add('light');
-      toggleBtn.textContent = 'Dark Mode';
-    }
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light');
-      if (body.classList.contains('light')) {
-        toggleBtn.textContent = 'Dark Mode';
-        localStorage.setItem('theme', 'light');
-      } else {
-        toggleBtn.textContent = 'Light Mode';
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  </script>
+  
+  <!-- Include highlight.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <!-- Include your custom script -->
+  <script src="script.js"></script>
 </body>
 </html>
